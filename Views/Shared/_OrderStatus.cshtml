@@ -1,0 +1,28 @@
+﻿@model Spice.Models.OrderHeader
+@using Spice.Utility
+<form method="post">
+    <div class="container row border ml-1 backgroundWhiteBorder10Padding" style="width:100%">
+        @{var imgSrc = "/images/"; }
+
+        @if (Model.Status == SD.StatusSubmitted)
+        {
+            imgSrc += SD.OrderPlaced;
+            <img class="col-12" src="@imgSrc" />
+        }
+        else if (Model.Status == SD.StatusInProgress)
+        {
+            imgSrc += SD.OrderInKitchen;
+            <img class="col-12" src="@imgSrc" />
+        }
+        else if (Model.Status == SD.StatusReady)
+        {
+            imgSrc += SD.OrderReadyForPickup;
+            <img class="col-12" src="@imgSrc" />
+        }
+        else if (Model.Status == SD.StatusCompleted)
+        {
+            imgSrc += SD.OrderCompleted;
+            <img class="col-12" src="@imgSrc" />
+        }
+    </div>
+</form>
